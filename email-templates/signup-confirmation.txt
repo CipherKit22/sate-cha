@@ -1,0 +1,73 @@
+🛡️ SATESHA SECURITY PLATFORM 🛡️
+Advanced Cybersecurity Solutions
+
+═══════════════════════════════════════════════════════════════
+
+WELCOME TO SATESHA!
+
+Thank you for joining our cybersecurity community!
+You're one step away from accessing advanced security tools and insights.
+
+═══════════════════════════════════════════════════════════════
+
+📧 ACCOUNT CONFIRMATION REQUIRED
+
+Your account has been registered for: {{ .Email }}
+
+To activate your SateCha account, please confirm your email address by clicking the link below:
+
+🔗 CONFIRMATION LINK: {{ .ConfirmationURL }}
+
+⚠️ SECURITY NOTICE:
+This confirmation link will expire in 24 hours for your security.
+If you didn't create this account, please ignore this email or contact our support team.
+
+═══════════════════════════════════════════════════════════════
+
+🚀 WHAT'S NEXT?
+
+1. Click the confirmation link above
+2. Complete your profile setup
+3. Explore our security dashboard
+4. Take your first cybersecurity quiz
+5. Join our community discussions
+
+═══════════════════════════════════════════════════════════════
+
+🌟 FEATURES YOU'LL GET ACCESS TO:
+
+🛡️ ADVANCED SECURITY
+   Real-time threat monitoring and analysis
+
+⚡ INSTANT ALERTS
+   Get notified of security incidents immediately
+
+👥 COMMUNITY
+   Learn from shared security experiences
+
+🎯 INTERACTIVE QUIZZES
+   Test and improve your cybersecurity knowledge
+
+📊 SECURITY DASHBOARD
+   Monitor and analyze security incidents
+
+🔧 SECURITY TOOLS
+   Access professional cybersecurity utilities
+
+═══════════════════════════════════════════════════════════════
+
+📞 NEED HELP?
+
+Website: {{WEBSITE_URL}}
+Support: {{SUPPORT_URL}}
+Privacy Policy: {{PRIVACY_URL}}
+
+═══════════════════════════════════════════════════════════════
+
+© 2024 SateCha Security Platform. All rights reserved.
+Protecting digital assets with advanced cybersecurity solutions.
+
+This email was sent to {{ .Email }} because you signed up for a SateCha account.
+If you have any questions, please don't hesitate to contact our support team.
+
+═══════════════════════════════════════════════════════════════
