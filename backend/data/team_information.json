@@ -1,0 +1,68 @@
+{
+  "team": {
+    "name": "NexTech_Five",
+    "description": "A dynamic team of Information Technology students from Technological University (Hmawbi), specializing in cybersecurity solutions and innovative technology development.",
+    "university": "Technological University (Hmawbi)",
+    "field_of_study": "Information Technology",
+    "project_focus": "Cybersecurity chatbot and knowledge management system",
+    "members": [
+      {
+        "name": "Tay Zar Min Htay",
+        "role": "Team Lead & Backend Developer",
+        "specialization": "System Architecture & API Development",
+        "responsibilities": ["Project coordination", "Backend development", "Database design", "API integration"]
+      },
+      {
+        "name": "Nan Zun Lae Pwint Thuya",
+        "role": "Frontend Developer & UI/UX Designer",
+        "specialization": "User Interface Design & React Development",
+        "responsibilities": ["Frontend development", "User experience design", "Component architecture", "Responsive design"]
+      },
+      {
+        "name": "Chue Myat Noe Khin",
+        "role": "Cybersecurity Specialist & Data Analyst",
+        "specialization": "Security Analysis & Knowledge Management",
+        "responsibilities": ["Security research", "Threat analysis", "Knowledge base curation", "Security testing"]
+      },
+      {
+        "name": "Su Yee Yee Tun",
+        "role": "Full-Stack Developer & DevOps",
+        "specialization": "Integration & Deployment",
+        "responsibilities": ["Full-stack development", "System integration", "Deployment automation", "Performance optimization"]
+      },
+      {
+        "name": "Aung Kaung Moe",
+        "role": "AI/ML Engineer & Research Specialist",
+        "specialization": "Natural Language Processing & Machine Learning",
+        "responsibilities": ["AI model integration", "NLP development", "Research & development", "Algorithm optimization"]
+      }
+    ],
+    "project_info": {
+      "name": "CipherKit - Cybersecurity Knowledge Assistant",
+      "version": "1.0.0",
+      "description": "An intelligent chatbot system designed to provide comprehensive cybersecurity knowledge and assistance to users, featuring real-time threat analysis, security best practices, and interactive learning modules.",
+      "technologies": ["React", "TypeScript", "Python", "Flask", "Supabase", "DeepSeek API", "Natural Language Processing"],
+      "features": [
+        "Interactive cybersecurity chatbot",
+        "Comprehensive knowledge base management",
+        "Real-time threat intelligence",
+        "Security best practices guidance",
+        "User-friendly interface",
+        "Multi-user support",
+        "Chat history management"
+      ]
+    },
+    "contact_info": {
+      "university_website": "https://www.tuhmawbi.edu.mm",
+      "project_repository": "https://github.com/NexTech_Five/CipherKit",
+      "team_email": "nextech.five@tuhmawbi.edu.mm"
+    },
+    "achievements": [
+      "Developed comprehensive cybersecurity knowledge base",
+      "Implemented AI-powered chatbot with natural language understanding",
+      "Created user-friendly interface for security education",
+      "Integrated multiple security frameworks and standards",
+      "Built scalable architecture for knowledge management"
+    ]
+  }
+}

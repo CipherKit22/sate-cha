@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useAuth } from '../contexts/AuthContext';
-import FeedbackForm from './FeedbackForm';
-import FeedbackViewer from './FeedbackViewer';
 import AnimatedText from './AnimatedText';
 import { 
   User,
@@ -18,8 +16,6 @@ import {
 const Settings: React.FC = () => {
   const { language, setLanguage } = useLanguage();
   const { user } = useAuth();
-  const [showFeedbackForm, setShowFeedbackForm] = useState(false);
-  const [showFeedbackViewer, setShowFeedbackViewer] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
   const handleLanguageChange = (newLanguage: 'en' | 'my') => {
@@ -97,45 +93,6 @@ const Settings: React.FC = () => {
                 <div className="text-sm opacity-70">Burmese</div>
               </div>
             </motion.button>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'feedback',
-      title: language === 'en' ? 'Feedback' : 'အကြံပြုချက်များ',
-      icon: MessageSquare,
-      description: language === 'en' ? 'Share your thoughts and suggestions' : 'သင့်အတွေးများနှင့် အကြံပြုချက်များကို မျှဝေပါ',
-      content: (
-        <div className="space-y-4">
-          <div className="p-4 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-lg border border-cyan-500/20">
-            <h4 className="text-white font-semibold mb-2">
-              {language === 'en' ? 'Help Us Improve' : 'ကျွန်ုပ်တို့ကို တိုးတက်အောင် ကူညီပါ'}
-            </h4>
-            <p className="text-gray-300 text-sm mb-4">
-              {language === 'en' 
-                ? 'Your feedback is valuable to us. Share your experience and help us make SateCha better.' 
-                : 'သင့်အကြံပြုချက်များသည် ကျွန်ုပ်တို့အတွက် အဖိုးတန်ပါသည်။'
-              }
-            </p>
-            <div className="flex space-x-3">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setShowFeedbackForm(true)}
-                className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg hover:from-cyan-600 hover:to-blue-600 transition-all font-medium"
-              >
-                {language === 'en' ? 'Give Feedback' : 'အကြံပြုချက် ပေးပါ'}
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setShowFeedbackViewer(true)}
-                className="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all font-medium"
-              >
-                {language === 'en' ? 'View My Feedback' : 'ကျွန်ုပ်၏ အကြံပြုချက်များ ကြည့်ရှုပါ'}
-              </motion.button>
-            </div>
           </div>
         </div>
       )
@@ -262,17 +219,6 @@ const Settings: React.FC = () => {
           })}
         </div>
       </div>
-
-      <FeedbackForm
-        isOpen={showFeedbackForm}
-        onClose={() => setShowFeedbackForm(false)}
-      />
-      
-      <FeedbackViewer
-        isOpen={showFeedbackViewer}
-        onClose={() => setShowFeedbackViewer(false)}
-        adminMode={false}
-      />
     </div>
   );
 };

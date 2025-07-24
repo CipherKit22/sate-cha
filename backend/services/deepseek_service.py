@@ -9,10 +9,12 @@ load_dotenv()
 class DeepSeekService:
     def __init__(self):
         self.api_key = os.getenv('DEEPSEEK_API_KEY')
-        self.base_url = os.getenv('DEEPSEEK_BASE_URL', 'https://api.deepseek.com')
+        self.base_url = os.getenv('DEEPSEEK_BASE_URL', 'https://openrouter.ai/api/v1')
         self.headers = {
             'Authorization': f'Bearer {self.api_key}',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'HTTP-Referer': 'http://localhost:3000',  # Optional, can be changed
+            'X-Title': 'Cybersecurity Chatbot'  # Optional, can be changed
         }
     
     def generate_response(self, prompt: str, context: str = "", max_tokens: int = 500) -> Optional[str]:
@@ -26,7 +28,7 @@ class DeepSeekService:
             full_prompt = f"Context: {context}\n\nUser: {prompt}\n\nAssistant:" if context else f"User: {prompt}\n\nAssistant:"
             
             payload = {
-                "model": "deepseek-chat",
+                "model": "deepseek/deepseek-chat-v3-0324:free",
                 "messages": [
                     {
                         "role": "system",
@@ -36,13 +38,11 @@ class DeepSeekService:
                         "role": "user",
                         "content": full_prompt
                     }
-                ],
-                "max_tokens": max_tokens,
-                "temperature": 0.7
+                ]
             }
             
             response = requests.post(
-                f"{self.base_url}/v1/chat/completions",
+                f"{self.base_url}/chat/completions",
                 headers=self.headers,
                 json=payload,
                 timeout=30

@@ -1,6 +1,7 @@
 from typing import List, Dict, Optional, Tuple
 from config.database import supabase_config
 from services.nlp_service import nlp_service
+from services.training_service import training_service
 import uuid
 from datetime import datetime
 
@@ -33,21 +34,54 @@ class KnowledgeService:
             return knowledge_item
     
     def get_all_knowledge(self) -> List[Dict]:
-        """Retrieve all knowledge items"""
+        """Retrieve all knowledge items from database and training data."""
+        all_knowledge = []
+
+        # 1. Get knowledge from Supabase
         try:
             result = self.supabase.table('knowledge_base').select('*').order('created_at', desc=True).execute()
-            return result.data if result.data else []
+            if result.data:
+                all_knowledge.extend(result.data)
         except Exception as e:
-            print(f"Error fetching knowledge: {e}")
-            # Return sample data for demo
-            return [
-                {
-                    'id': '1',
-                    'title': 'Sample Knowledge',
-                    'content': 'This is a sample knowledge base entry for demonstration purposes.',
-                    'created_at': datetime.utcnow().isoformat()
-                }
+            print(f"Warning: Could not fetch knowledge from Supabase: {e}")
+            # Add sample data if Supabase fails
+            all_knowledge.append({
+                'id': 'db_fallback_1',
+                'title': 'Sample Knowledge',
+                'content': 'This is a sample knowledge base entry for demonstration purposes when the database is unavailable.',
+                'created_at': datetime.utcnow().isoformat()
+            })
+
+        # 2. Get cybersecurity knowledge from training_service
+        cyber_knowledge = training_service.get_all_cybersecurity_knowledge()
+        if cyber_knowledge:
+            # Ensure the format is consistent
+            for item in cyber_knowledge:
+                item['source'] = 'cybersecurity_training'
+            all_knowledge.extend(cyber_knowledge)
+
+        # 3. Get team information and format it as a knowledge item
+        team_info = training_service.get_team_information()
+        if team_info and 'team' in team_info:
+            team_data = team_info['team']
+            team_content_parts = [
+                f"The project was created by Team {team_data.get('name', 'N/A')}.",
+                team_data.get('description', ''),
+                f"The team members are: {', '.join([member['name'] for member in team_data.get('members', [])])}.",
+                f"All members are students of {team_data.get('field_of_study', 'N/A')} at {team_data.get('university', 'N/A')}."
             ]
+            team_content = " ".join(filter(None, team_content_parts))
+            
+            team_knowledge_item = {
+                'id': 'team_info_001',
+                'title': 'About the Development Team',
+                'content': team_content,
+                'source': 'team_information',
+                'created_at': datetime.utcnow().isoformat()
+            }
+            all_knowledge.append(team_knowledge_item)
+
+        return all_knowledge
     
     def search_knowledge(self, query: str, limit: int = 5) -> List[Tuple[Dict, float]]:
         """Search knowledge base using NLP similarity"""
@@ -89,7 +123,11 @@ class KnowledgeService:
                         context_parts.append(truncated_part)
                     break
             
-            return "\n\n".join(context_parts)
+            final_context = "\n\n".join(context_parts)
+            print(f"--- [Knowledge Service] Retrieved Context ---")
+            print(final_context)
+            print("-------------------------------------------")
+            return final_context
             
         except Exception as e:
             print(f"Error getting relevant context: {e}")

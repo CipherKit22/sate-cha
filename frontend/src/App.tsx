@@ -298,7 +298,7 @@ const AppContent: React.FC = () => {
       />
 
       {/* Main Content */}
-      <main className="flex-1 overflow-auto relative z-10">
+      <main className="flex-1 overflow-auto relative z-10 pt-20">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}

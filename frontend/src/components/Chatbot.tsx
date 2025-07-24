@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { chatService } from '../services/api';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, Bot, User, Mic, MicOff, Trash2, Download, Copy } from 'lucide-react';
 
@@ -47,34 +48,29 @@ const Chatbot: React.FC = () => {
     setInputText('');
     setIsLoading(true);
 
-    // Simulate AI response
-    setTimeout(() => {
+    try {
+      const response = await chatService.sendMessage(inputText);
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: generateBotResponse(inputText),
+        text: response.message,
         sender: 'bot',
         timestamp: new Date()
       };
       setMessages(prev => [...prev, botMessage]);
+    } catch (error) {
+      const errorMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        text: 'Sorry, I encountered an error. Please try again.',
+        sender: 'bot',
+        timestamp: new Date()
+      };
+      setMessages(prev => [...prev, errorMessage]);
+    } finally {
       setIsLoading(false);
-    }, 1500);
-  };
-
-  const generateBotResponse = (userInput: string): string => {
-    const input = userInput.toLowerCase();
-    
-    if (input.includes('password') || input.includes('security')) {
-      return 'For password security, I recommend using strong, unique passwords with a combination of uppercase, lowercase, numbers, and symbols. Consider using a password manager and enabling two-factor authentication.';
-    } else if (input.includes('phishing') || input.includes('email')) {
-      return 'To protect against phishing attacks, always verify sender authenticity, check URLs carefully, avoid clicking suspicious links, and never provide sensitive information via email.';
-    } else if (input.includes('malware') || input.includes('virus')) {
-      return 'To prevent malware infections, keep your software updated, use reputable antivirus software, avoid downloading from untrusted sources, and be cautious with email attachments.';
-    } else if (input.includes('firewall') || input.includes('network')) {
-      return 'Network security best practices include using firewalls, securing Wi-Fi networks with WPA3, regularly updating router firmware, and monitoring network traffic for suspicious activity.';
-    } else {
-      return 'I\'m here to help with cybersecurity questions! You can ask me about password security, phishing protection, malware prevention, network security, or any other cybersecurity topics.';
     }
   };
+
+
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {

@@ -419,37 +419,47 @@ const AdvancedNavigation: React.FC<AdvancedNavigationProps> = ({
                     return (
                       <motion.button
                         key={item.id}
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                        onClick={() => {
-                          onTabChange(item.id);
-                          setIsMobileMenuOpen(false);
-                        }}
-                        className={`w-full flex items-center space-x-4 p-4 rounded-xl font-semibold transition-all duration-300 ${
+                        onClick={() => onTabChange(item.id)}
+                        className={`relative group flex items-center space-x-3 px-4 py-3 rounded-xl font-semibold transition-all duration-500 overflow-hidden ${
                           isActive
-                            ? `bg-gradient-to-r ${item.gradient} text-white shadow-lg`
-                            : 'text-gray-300 hover:text-white hover:bg-gray-800/50'
+                            ? `bg-gradient-to-r ${item.gradient} text-white shadow-2xl shadow-cyan-500/50 border border-cyan-400/50`
+                            : 'text-gray-300 hover:text-white hover:bg-gray-800/30 hover:border hover:border-cyan-400/30 hover:shadow-lg hover:shadow-cyan-400/20'
                         }`}
-                        whileHover={{ scale: 1.02, x: 4 }}
+                        whileHover={{ scale: isActive ? 1.05 : 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
-                        <div className="relative">
-                          {isActive && (
-                            <motion.div
-                              className="absolute inset-0 bg-white/30 rounded-full blur-sm"
-                              animate={{
-                                scale: [1, 1.3, 1],
-                                opacity: [0.3, 0.6, 0.3]
-                              }}
-                              transition={{ duration: 2, repeat: Infinity }}
-                            />
-                          )}
-                          <Icon className="w-6 h-6 relative z-10" />
-                        </div>
-                        <div className="text-left">
-                          <p className="font-bold">{item.label}</p>
-                          <p className="text-sm opacity-70">{item.description}</p>
+                        {/* Glowing Background Effect */}
+                        {isActive && (
+                          <motion.div
+                            className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-xl"
+                            animate={{
+                              opacity: [0.5, 0.8, 0.5],
+                              scale: [1, 1.02, 1]
+                            }}
+                            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                          />
+                        )}
+                        
+                        {/* Hover Glow Effect */}
+                        <motion.div
+                          className="absolute inset-0 bg-gradient-to-r from-cyan-400/0 to-blue-400/0 rounded-xl group-hover:from-cyan-400/10 group-hover:to-blue-400/10 transition-all duration-500"
+                        />
+                        
+                        <div className="relative flex items-center space-x-3 z-10">
+                          <div className="relative">
+                            {isActive && (
+                              <motion.div
+                                className="absolute inset-0 bg-white/30 rounded-full blur-sm"
+                                animate={{
+                                  scale: [1, 1.3, 1],
+                                  opacity: [0.3, 0.6, 0.3]
+                                }}
+                                transition={{ duration: 2, repeat: Infinity }}
+                              />
+                            )}
+                            <Icon className="w-6 h-6 relative z-10" />
+                          </div>
+                          <span className="relative z-10">{item.label}</span>
                         </div>
                       </motion.button>
                     );

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "cyber_001",
+    "title": "Network Security Fundamentals",
+    "content": "Network security involves protecting computer networks from unauthorized access, misuse, or theft. Key components include firewalls, intrusion detection systems (IDS), intrusion prevention systems (IPS), and virtual private networks (VPNs). Firewalls act as barriers between trusted internal networks and untrusted external networks, filtering traffic based on predetermined security rules.",
+    "category": "network_security",
+    "tags": ["firewall", "IDS", "IPS", "VPN", "network_protection"]
+  },
+  {
+    "id": "cyber_002",
+    "title": "Common Cyber Threats",
+    "content": "Major cybersecurity threats include malware (viruses, worms, trojans, ransomware), phishing attacks, social engineering, DDoS attacks, and advanced persistent threats (APTs). Malware can steal data, corrupt systems, or hold data hostage. Phishing involves tricking users into revealing sensitive information through fake emails or websites.",
+    "category": "threats",
+    "tags": ["malware", "phishing", "social_engineering", "DDoS", "APT", "ransomware"]
+  },
+  {
+    "id": "cyber_003",
+    "title": "Password Security Best Practices",
+    "content": "Strong password security includes using complex passwords with at least 12 characters, combining uppercase, lowercase, numbers, and special characters. Enable multi-factor authentication (MFA) whenever possible. Use unique passwords for each account and consider password managers. Avoid common passwords like '123456' or 'password'.",
+    "category": "authentication",
+    "tags": ["passwords", "MFA", "authentication", "password_manager", "security_practices"]
+  },
+  {
+    "id": "cyber_004",
+    "title": "Data Encryption Principles",
+    "content": "Encryption converts readable data into coded format to prevent unauthorized access. Symmetric encryption uses the same key for encryption and decryption (AES), while asymmetric encryption uses public-private key pairs (RSA). End-to-end encryption ensures only sender and receiver can read messages. Always encrypt sensitive data at rest and in transit.",
+    "category": "encryption",
+    "tags": ["encryption", "AES", "RSA", "symmetric", "asymmetric", "end_to_end"]
+  },
+  {
+    "id": "cyber_005",
+    "title": "Web Application Security",
+    "content": "Web application vulnerabilities include SQL injection, cross-site scripting (XSS), cross-site request forgery (CSRF), and insecure direct object references. Use input validation, parameterized queries, output encoding, and proper session management. Implement HTTPS, secure headers, and regular security testing.",
+    "category": "web_security",
+    "tags": ["SQL_injection", "XSS", "CSRF", "HTTPS", "input_validation", "web_vulnerabilities"]
+  },
+  {
+    "id": "cyber_006",
+    "title": "Incident Response Planning",
+    "content": "Incident response involves preparation, identification, containment, eradication, recovery, and lessons learned. Establish an incident response team, create communication plans, document procedures, and conduct regular drills. Quick response minimizes damage and recovery time. Maintain forensic capabilities and legal compliance.",
+    "category": "incident_response",
+    "tags": ["incident_response", "forensics", "recovery", "containment", "communication_plan"]
+  },
+  {
+    "id": "cyber_007",
+    "title": "Cloud Security Considerations",
+    "content": "Cloud security involves shared responsibility between provider and customer. Secure cloud configurations, implement identity and access management (IAM), encrypt data, monitor activities, and ensure compliance. Use cloud security tools, backup strategies, and understand service level agreements (SLAs).",
+    "category": "cloud_security",
+    "tags": ["cloud_security", "IAM", "shared_responsibility", "compliance", "SLA", "cloud_monitoring"]
+  },
+  {
+    "id": "cyber_008",
+    "title": "Mobile Device Security",
+    "content": "Mobile security includes device encryption, secure app installation, regular updates, remote wipe capabilities, and mobile device management (MDM). Avoid public Wi-Fi for sensitive activities, use VPNs, enable screen locks, and be cautious with app permissions. Implement bring-your-own-device (BYOD) policies.",
+    "category": "mobile_security",
+    "tags": ["mobile_security", "MDM", "BYOD", "device_encryption", "app_security", "VPN"]
+  },
+  {
+    "id": "cyber_009",
+    "title": "Social Engineering Defense",
+    "content": "Social engineering exploits human psychology rather than technical vulnerabilities. Common tactics include pretexting, baiting, quid pro quo, and tailgating. Defense strategies include security awareness training, verification procedures, limiting information sharing, and creating a security-conscious culture.",
+    "category": "social_engineering",
+    "tags": ["social_engineering", "pretexting", "baiting", "security_awareness", "human_factor"]
+  },
+  {
+    "id": "cyber_010",
+    "title": "Compliance and Regulations",
+    "content": "Key cybersecurity regulations include GDPR (data protection), HIPAA (healthcare), PCI DSS (payment cards), SOX (financial), and ISO 27001 (information security management). Compliance requires risk assessments, documentation, regular audits, and continuous monitoring. Non-compliance can result in significant penalties.",
+    "category": "compliance",
+    "tags": ["GDPR", "HIPAA", "PCI_DSS", "SOX", "ISO_27001", "compliance", "regulations"]
+  }
+]
