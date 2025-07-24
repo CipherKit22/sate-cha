@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Report - Cybersecurity Quiz Application</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .report-container {
+            max-width: 850px;
+            margin: 2rem auto;
+            background: #fff;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        .title-page {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .title-page h1 {
+            font-size: 2.5rem;
+            color: #003366;
+            margin-bottom: 1rem;
+        }
+        .title-page h2 {
+            font-size: 1.5rem;
+            color: #00509e;
+            margin-bottom: 2rem;
+        }
+        .title-page p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+        h1, h2, h3, h4 {
+            color: #00509e;
+        }
+        h1 {
+            border-bottom: 3px solid #00509e;
+            padding-bottom: 10px;
+            margin-top: 2.5rem;
+        }
+        h2 {
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 8px;
+            margin-top: 2rem;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        code {
+            background-color: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .toc {
+            background: #e9f5ff;
+            border-left: 5px solid #00509e;
+            padding: 1rem 2rem;
+            margin-bottom: 3rem;
+            border-radius: 5px;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #003366;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="report-container">
+        <div class="title-page">
+            <h1>Cybersecurity Quiz Application</h1>
+            <h2>Project Technical Report</h2>
+            <p><strong>Submitted By:</strong> User</p>
+            <p><strong>Date:</strong> October 26, 2023</p>
+        </div>
+
+        <div id="abstract">
+            <h2>Abstract</h2>
+            <p>The Cybersecurity Quiz Application is an interactive, web-based educational tool developed using React and TypeScript. It aims to enhance cybersecurity awareness by providing a gamified learning experience. The application features multi-language support (English and Burmese), tiered difficulty levels (Beginner, Intermediate, Advanced), a time-based scoring system, and achievement awards (medals). Upon successful completion, users can generate and download a personalized certificate. This report provides a comprehensive overview of the project's objectives, architecture, design, implementation details, testing strategies, and potential future enhancements.</p>
+        </div>
+
+        <div id="toc" class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#ch1">Chapter 1: Introduction</a></li>
+                <li><a href="#ch2">Chapter 2: System Analysis and Design</a></li>
+                <li><a href="#ch3">Chapter 3: Implementation</a></li>
+                <li><a href="#ch4">Chapter 4: Testing</a></li>
+                <li><a href="#ch5">Chapter 5: Conclusion and Future Enhancement</a></li>
+                <li><a href="#references">References</a></li>
+                <li><a href="#appendix">Appendix</a></li>
+            </ul>
+        </div>
+
+        <h2>4. Features</h2>
+        <ul>
+            <li><strong>Multi-Level Quiz:</strong> Offers beginner, intermediate, and advanced difficulty levels.</li>
+            <li><strong>Multilingual Support:</strong> Available in English and Burmese.</li>
+            <li><strong>Timed Questions:</strong> Each question has a 30-second timer with auto-submission.</li>
+            <li><strong>Scoring and Medals:</strong> Users receive a score and are awarded medals based on performance.</li>
+            <li><strong>Downloadable Certificate:</strong> A personalized certificate can be downloaded upon quiz completion.</li>
+        </ul>
+
+        <h2>5. Conclusion and Future Work</h2>
+        <p>The Cybersecurity Quiz Application provides a solid foundation for an interactive e-learning platform. Future enhancements could include:</p>
+        <ul>
+            <li>Expanding the question bank.</li>
+            <li>Adding more languages.</li>
+            <li>Implementing a user dashboard to track progress over time.</li>
+            <li>Integrating with a robust backend to persist user data and scores.</li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+</body>
+</html>
