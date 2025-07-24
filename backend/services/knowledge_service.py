@@ -1,7 +1,10 @@
 from typing import List, Dict, Optional, Tuple
 from config.database import supabase_config
 from services.nlp_service import nlp_service
+<<<<<<< HEAD
 from services.training_service import training_service
+=======
+>>>>>>> daf97b202766d82f427622fa997fdfa044882444
 import uuid
 from datetime import datetime
 
@@ -34,6 +37,7 @@ class KnowledgeService:
             return knowledge_item
     
     def get_all_knowledge(self) -> List[Dict]:
+<<<<<<< HEAD
         """Retrieve all knowledge items from database and training data."""
         all_knowledge = []
 
@@ -82,6 +86,23 @@ class KnowledgeService:
             all_knowledge.append(team_knowledge_item)
 
         return all_knowledge
+=======
+        """Retrieve all knowledge items"""
+        try:
+            result = self.supabase.table('knowledge_base').select('*').order('created_at', desc=True).execute()
+            return result.data if result.data else []
+        except Exception as e:
+            print(f"Error fetching knowledge: {e}")
+            # Return sample data for demo
+            return [
+                {
+                    'id': '1',
+                    'title': 'Sample Knowledge',
+                    'content': 'This is a sample knowledge base entry for demonstration purposes.',
+                    'created_at': datetime.utcnow().isoformat()
+                }
+            ]
+>>>>>>> daf97b202766d82f427622fa997fdfa044882444
     
     def search_knowledge(self, query: str, limit: int = 5) -> List[Tuple[Dict, float]]:
         """Search knowledge base using NLP similarity"""
@@ -123,11 +144,15 @@ class KnowledgeService:
                         context_parts.append(truncated_part)
                     break
             
+<<<<<<< HEAD
             final_context = "\n\n".join(context_parts)
             print(f"--- [Knowledge Service] Retrieved Context ---")
             print(final_context)
             print("-------------------------------------------")
             return final_context
+=======
+            return "\n\n".join(context_parts)
+>>>>>>> daf97b202766d82f427622fa997fdfa044882444
             
         except Exception as e:
             print(f"Error getting relevant context: {e}")

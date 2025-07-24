@@ -419,6 +419,7 @@ const AdvancedNavigation: React.FC<AdvancedNavigationProps> = ({
                     return (
                       <motion.button
                         key={item.id}
+<<<<<<< HEAD
                         onClick={() => onTabChange(item.id)}
                         className={`relative group flex items-center space-x-3 px-4 py-3 rounded-xl font-semibold transition-all duration-500 overflow-hidden ${
                           isActive
@@ -460,6 +461,39 @@ const AdvancedNavigation: React.FC<AdvancedNavigationProps> = ({
                             <Icon className="w-6 h-6 relative z-10" />
                           </div>
                           <span className="relative z-10">{item.label}</span>
+=======
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1 }}
+                        onClick={() => {
+                          onTabChange(item.id);
+                          setIsMobileMenuOpen(false);
+                        }}
+                        className={`w-full flex items-center space-x-4 p-4 rounded-xl font-semibold transition-all duration-300 ${
+                          isActive
+                            ? `bg-gradient-to-r ${item.gradient} text-white shadow-lg`
+                            : 'text-gray-300 hover:text-white hover:bg-gray-800/50'
+                        }`}
+                        whileHover={{ scale: 1.02, x: 4 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <div className="relative">
+                          {isActive && (
+                            <motion.div
+                              className="absolute inset-0 bg-white/30 rounded-full blur-sm"
+                              animate={{
+                                scale: [1, 1.3, 1],
+                                opacity: [0.3, 0.6, 0.3]
+                              }}
+                              transition={{ duration: 2, repeat: Infinity }}
+                            />
+                          )}
+                          <Icon className="w-6 h-6 relative z-10" />
+                        </div>
+                        <div className="text-left">
+                          <p className="font-bold">{item.label}</p>
+                          <p className="text-sm opacity-70">{item.description}</p>
+>>>>>>> daf97b202766d82f427622fa997fdfa044882444
                         </div>
                       </motion.button>
                     );
